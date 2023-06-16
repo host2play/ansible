@@ -4,5 +4,3 @@
     - name: Execute command
       ansible.builtin.command:
         cmd: bash /mnt/pve/NFS/vps/create_nat micro {{ email }}
-      register: result
-      failed_when: result.rc != 1
