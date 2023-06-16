@@ -1,7 +1,5 @@
 ---
 - hosts: myvms
-  vars:
-    email: "skip@onet.eu"
   tasks:
     - name: Execute command
       ansible.builtin.command:
