@@ -1,5 +1,5 @@
 ---
-- hosts: myvms
+- hosts: proxmox
   tasks:
     - name: Execute command
       ansible.builtin.command:
