@@ -3,4 +3,4 @@
   tasks:
     - name: Execute command
       ansible.builtin.command:
-        cmd: create-nat micro skip@onet.eu
+        cmd: bash /mnt/pve/NFS/vps/create_nat micro skip@onet.eu
