@@ -1,0 +1,6 @@
+---
+- hosts: myvms
+  tasks:
+    - name: Execute command
+      ansible.builtin.command:
+        cmd: create-nat micro skip@onet.eu
