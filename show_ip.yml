@@ -1,9 +1,0 @@
----
-- hosts: myvms
-  tasks:
-    - name: Gather facts
-      setup:
-
-    - name: Display IP address
-      debug:
-        msg: "IP address for {{ ansible_facts['default_ipv4']['address'] }}"
