@@ -4,3 +4,8 @@
     - name: Execute command
       ansible.builtin.command:
         cmd: bash /mnt/pve/NFS/vps/create_nat {{ plan }} {{ email }}
+      register: output
+
+    - name: Display output
+      ansible.builtin.debug:
+        var: output.stdout_lines
