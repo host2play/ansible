@@ -3,7 +3,7 @@
   tasks:
     - name: Execute command
       ansible.builtin.command:
-        cmd: bash /mnt/pve/NFS/vps/destroy/service_destroy {{ servicename }}
+        cmd: bash /mnt/pve/NFS/vps/destroy/service_destroy {{ servicename }} {{ whosdeleting }} 
       register: result
       failed_when: result.rc != 1
 
