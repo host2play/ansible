@@ -5,6 +5,7 @@
       ansible.builtin.command:
         cmd: bash /mnt/pve/NFS/ptero/create_bot solo {{ email }}
       register: result
+      failed_when: result.rc != 1
 
     - name: Display output
       ansible.builtin.debug:
