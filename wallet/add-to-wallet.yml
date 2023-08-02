@@ -4,3 +4,8 @@
     - name: Execute command
       ansible.builtin.command:
         cmd: bash /mnt/pve/NFS/apireq/addbalance/addbalapireq {{ email }} {{ amount }}
+      register: result
+
+    - name: Display output
+      ansible.builtin.debug:
+        var: result.stdout_lines
