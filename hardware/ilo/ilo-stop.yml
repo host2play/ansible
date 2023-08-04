@@ -1,0 +1,11 @@
+---
+- hosts: node10
+  tasks:
+    - name: Execute command
+      ansible.builtin.command:
+        cmd: python3 /root/ilo/ilo_off.py {{ ipaddress }}
+      register: result
+
+    - name: Display output
+      ansible.builtin.debug:
+        var: result.stdout_lines
