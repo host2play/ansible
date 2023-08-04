@@ -3,7 +3,7 @@
   tasks:
     - name: Execute command
       ansible.builtin.command:
-        cmd: bash /root/ilo/ilo_on.py
+        cmd: python3 /root/ilo/ilo_on.py
       register: result
 
     - name: Display output
