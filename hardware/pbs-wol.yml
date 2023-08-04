@@ -3,7 +3,7 @@
   tasks:
     - name: Execute command
       ansible.builtin.command:
-        cmd: bash "wakeonlan 00:80:64:e2:07:8a"
+        cmd: bash /mnt/pve/NFS/hardware/pbs_wol
       register: result
 
     - name: Display output
