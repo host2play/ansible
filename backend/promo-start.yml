@@ -1,0 +1,11 @@
+---
+- hosts: proxmox
+  tasks:
+    - name: Execute command
+      ansible.builtin.command:
+        cmd: bash /mnt/pve/NFS/backend/promo_start
+      register: result
+
+    - name: Display output
+      ansible.builtin.debug:
+        var: result.stdout_lines
