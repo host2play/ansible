@@ -3,7 +3,7 @@
   tasks:
     - name: Execute command
       ansible.builtin.command:
-        cmd: bash /mnt/pve/NFS/backend/promo_start_webhook "{{ promo_name }}" "{{ promo_discount }}" "{{ promo_date }}" "{{ promo_time }}" "{{ promo_title }}" "{{ promo_text }}"
+        cmd: bash /mnt/pve/NFS/backend/promo_start_webhook {{ promo_name }} {{ promo_discount }} {{ promo_date }} {{ promo_time }} '{{ promo_title }}' '{{ promo_text }}'
       register: result
 
     - name: Display output
