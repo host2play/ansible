@@ -3,7 +3,7 @@
   tasks:
     - name: Execute command
       ansible.builtin.command:
-        cmd: bash /mnt/pve/NFS/backend/promo_start
+        cmd: bash /mnt/pve/NFS/backend/promo_start {{ promo_name }} {{ promo_date }} {{ promo_time }}
       register: result
 
     - name: Display output
