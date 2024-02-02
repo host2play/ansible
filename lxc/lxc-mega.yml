@@ -3,7 +3,7 @@
   tasks:
     - name: Execute command
       ansible.builtin.command:
-        cmd: bash /mnt/pve/NFS/vps/create_nat mega {{ email }}
+        cmd: bash /mnt/pve/NFS/lxc/create_lxc mega {{ email }}
       register: result
       failed_when: result.rc != 1
 
