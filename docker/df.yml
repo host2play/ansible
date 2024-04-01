@@ -1,0 +1,15 @@
+---
+- name: Check disk space on all hosts
+  hosts: nodes
+  gather_facts: no
+  tasks:
+    - name: Check disk space using df -h
+      ansible.builtin.shell:
+        cmd: df -h
+      register: disk_space
+
+    - name: Show disk space results
+      ansible.builtin.debug:
+        msg: |
+          Host {{ inventory_hostname }} disk space:
+          {{ disk_space.stdout_lines }}
