@@ -1,6 +1,6 @@
 ---
 - name: Run docker system prune on all servers
-  hosts: your_host_group
+  hosts: nodes
   become: no 
   tasks:
     - name: Prune all unused Docker objects
