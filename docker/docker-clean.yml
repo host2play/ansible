@@ -1,12 +1,13 @@
 ---
-- hosts: proxmox
+- name: Run docker system prune on all servers
+  hosts: your_host_group
+  become: no 
   tasks:
-    - name: Execute command
+    - name: Prune all unused Docker objects
       ansible.builtin.command:
-        cmd: bash /mnt/pve/NFS/vps/docker/docker_clean 
-      register: result
-      failed_when: result.rc != 1
+        cmd: docker system prune --all --force --volumes
+      register: prune_result
 
-    - name: Display output
+    - name: Show prune result
       ansible.builtin.debug:
-        var: result.stdout_lines
+        msg: "{{ prune_result.stdout }}"
