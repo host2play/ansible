@@ -1,15 +1,13 @@
 ---
-- name: Check disk space on all hosts
+- name: Check disk space on all hosts and display it nicely
   hosts: nodes
   gather_facts: no
   tasks:
-    - name: Check disk space using df -h
+    - name: Get disk space for the main filesystem
       ansible.builtin.shell:
-        cmd: df -h
-      register: disk_space
+        cmd: df -h | grep '/dev/sda1' | awk '{print $2 " used, " $4 " available (" $5 " used) on the main filesystem"}'
+      register: disk_space_main_fs
 
-    - name: Show disk space results
+    - name: Show nicely formatted disk space results
       ansible.builtin.debug:
-        msg: |
-          Host {{ inventory_hostname }} disk space:
-          {{ disk_space.stdout_lines }}
+        msg: "Host {{ inventory_hostname }} - {{ disk_space_main_fs.stdout }}"
