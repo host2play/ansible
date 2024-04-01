@@ -5,7 +5,7 @@
   tasks:
     - name: Get disk space for the main filesystem
       ansible.builtin.shell:
-        cmd: df -h | grep '/dev/sda1' | awk '{print $2 " used, " $4 " available (" $5 " used) on the main filesystem"}'
+        cmd: df -h | grep -E '^/dev/' | grep ' /$' | awk '{print $2 " used, " $4 " available (" $5 " used) on the main filesystem"}'
       register: disk_space_main_fs
 
     - name: Show nicely formatted disk space results
