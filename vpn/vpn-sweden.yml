@@ -3,7 +3,7 @@
   tasks:
     - name: Execute command
       ansible.builtin.command:
-        cmd: bash /mnt/pve/NFS/vpn/create_vpn vpn-sweden {{ email }}
+        cmd: bash /mnt/pve/NFS/vpn/create_vpn sweden {{ email }}
       register: result
       failed_when: result.rc != 1
 
