@@ -1,0 +1,12 @@
+---
+- hosts: proxmox
+  tasks:
+    - name: Execute command
+      ansible.builtin.command:
+        cmd: bash /mnt/pve/NFS/vpl/create_vpl medium {{ email }}
+      register: result
+      failed_when: result.rc != 1
+
+    - name: Display output
+      ansible.builtin.debug:
+        var: result.stdout_lines
