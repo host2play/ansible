@@ -3,7 +3,7 @@
   tasks:
     - name: Execute command
       ansible.builtin.command:
-        cmd: bash /mnt/pve/NFS/lxc/create_lxc essential {{ email }}
+        cmd: bash /mnt/pve/NFS/lxc/autoinstall/create_vps essential {{ email }}
       register: result
       failed_when: result.rc != 1
 
