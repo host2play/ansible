@@ -3,7 +3,7 @@
   tasks:
     - name: Execute command
       ansible.builtin.command:
-        cmd: bash /mnt/pve/NFS/tt/ansible_stop.sh {{ servicename }}
+        cmd: bash /mnt/pve/NFS/tt/tt_stop.sh {{ servicename }}
       register: result
       failed_when: result.rc != 1
 
