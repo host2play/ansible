@@ -3,7 +3,7 @@
   tasks:
     - name: Execute command
       ansible.builtin.command:
-        cmd: bash /mnt/pve/NFS/vps/create_nat medium {{ email }}
+        cmd: bash /mnt/pve/NFS/nat/autoinstall/create_vps medium {{ email }}
       register: result
       failed_when: result.rc != 1
 
