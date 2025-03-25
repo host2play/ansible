@@ -1,6 +1,6 @@
 ---
 - name: Run cleaning script on all servers
-  hosts: vmvnode3
+  hosts: proxmox
   become: no
   tasks:
     - name: Execute Python script
