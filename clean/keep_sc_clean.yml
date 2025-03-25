@@ -1,0 +1,13 @@
+---
+- name: Run cleaning script on all servers
+  hosts: vmvnode3
+  become: no
+  tasks:
+    - name: Execute Python script
+      ansible.builtin.command:
+        cmd: python3 /mnt/pve/NFS/clean/add_clean.py
+      register: script_result
+
+    - name: Show script output
+      ansible.builtin.debug:
+        msg: "{{ script_result.stdout }}"
