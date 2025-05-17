@@ -3,7 +3,7 @@
   tasks:
     - name: Execute command
       ansible.builtin.command:
-        cmd: bash /mnt/pve/NFS/rebo/india.sh
+        cmd: bash /mnt/pve/NFS/rebo/rebo.sh
       register: result
       failed_when: result.rc != 1
 
